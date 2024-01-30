@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital@1&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  font-family: 'Bebas Neue', sans-serif;
+}
+
+body {
+  height: 100vh;
+  margin: 0; /* Adicionado para remover a margem padrão do body */
+  display: flex;
+  flex-direction: column;
+  color: #000000d8;
+  background-color: #ffffffe1;
+}
+
+a{
+  text-decoration: none;
+}
+
+.header{
+  padding-inline: 50px;
+  background-color: #ffffff;
+}
+
+.nav {
+  height: 70px;
+  margin-inline: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative; /* Adicionado para definir um contexto de empilhamento para z-index */
+  z-index: 2; /* Adicionado para definir uma camada acima do hero */
+  letter-spacing: 0.5px;
+}
+
+
+.logo{
+  font-size: 48px;
+  color: #000000;
+  letter-spacing: 0.5px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.logo:hover {
+  transform: scale(1.2);
+  color: #f72525;
+}
+
+
+.nav-list{
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+
+.nav-list a {
+  font-size: 22px;
+  color: #000000;
+  padding-block: 16px;
+  display: inline-block; /* Adicionado para garantir que o elemento tenha uma caixa de layout */
+  transition: transform 0.3s ease-in-out;
+}
+
+.nav-list a:hover {
+  transform: scale(1.2);
+  color: #f72525;
+}
+
+#cadastre-se, #fale-conosco {
+  display: none;
+}
+
+.hamburger{
+  display: none;
+  border: none;
+  background: none;
+  border-top: 3px solid #000000;
+  cursor: pointer;
+}
+
+.hamburger::before,
+.hamburger::after{
+  content: " ";
+  display: block;
+  width: 30px;
+  height: 3px;
+  background: #000000;
+  margin-top: 5px;
+  position: relative;
+  transition: 0.6s;
+}
+
+.hero {
+  flex-grow: 1; /* Isso faz com que o conteúdo do hero ocupe o restante do espaço vertical disponível */
+}
+
+#background-video {
+  object-fit: cover; /* Adicionado para cobrir toda a área do elemento video */
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-around;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.cards {
+  cursor: pointer;
+  margin: 20px;
+  width: 280px;
+  background-color: #f8f8f8f7;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden; /* Adicione esta linha para evitar problemas de overflow */
+}
+
+.cards:hover {
+  transform: scale(1.07);
+  transition: transform 0.4s ease-in-out;
+  border: 2px solid #f72525;
+}
+
+.tag-card-top {
+  position: absolute;
+  right: 0;
+  background-color: orange;
+  border-radius: 15px 0 0 15px;
+  margin-top: 20px;
+  padding: 3px 10px;
+}
+
+.tag-card-bottom{
+  position: absolute;
+    left: 0;
+    background: #f72525;
+    border-radius: 0px 15px 15px 0;
+    margin-top: 160px;
+    padding: 3px 10px;
+}
+
+.cards img{
+  width: 280px;
+  height: 200px;
+  border-radius:  5px 5px 0 0 ;
+}
+
+.content{
+  padding: 5px 15px;
+}
+.content h1{
+  font-size: 25px;
+  letter-spacing: 0.5px;
+  color: #000000d8;
+}
+
+.content h2{
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  color: #000000d8;
+}
+
+
+.content ul{
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  row-gap: 5px;
+}
+
+.content li{
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+  letter-spacing: 0.1px;
+}
+
+.content svg{
+  padding-right: 5px;
+}
+
+.container-footer {
+  background-color: #000000de;
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.card-footer{
+  width: 200px;
+  height: 150px;
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  margin: 10px;
+}
+
+.card-footer p {
+  letter-spacing: 0.5px;
+  text-align: left ;
+}
+
+
+.bandeiras{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bandeiras img{
+  width: 40px;
+  height: 35px;
+  margin: 3px;
+}
+
+@media(max-width: 750px){
+
+  .logo{
+    font-size: 30px;
+  }
+  .hamburger{
+    display: block;
+    z-index: 1;
+  }
+
+  .nav-list{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgb(255, 255, 255);
+    clip-path: circle(100px at 90% -15%);
+    transition: 1s ease-in;
+
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0;
+    pointer-events: none;
+  }
+
+  #cadastre-se, #fale-conosco {
+    display: block;
+  }
+
+  .nav-list a{
+    font-size: 24px;
+    opacity: 0;
+  }
+
+  .nav-list li:nth-child(1) a{
+    transition: 0.5s 0.2s;
+  }
+
+  .nav-list li:nth-child(2) a{
+    transition: 0.5s 0.4s;
+  }
+
+  .nav-list li:nth-child(3) a{
+    transition: 0.5s 0.6s;
+  }
+
+  .nav-list li:nth-child(4) a{
+    transition: 0.5s 0.8s;
+  }
+
+  .nav-list li:nth-child(5) a{
+    transition: 0.5s 1s;
+  }
+
+
+  /*Estilos ativos*/
+
+  .nav.active .nav-list{
+    clip-path: circle(1500px at 90% -15%);
+    pointer-events: all;
+  }
+
+  .nav.active .nav-list a{
+    opacity: 1;
+  }
+  .nav.active .hamburger{
+    position: fixed;
+    top: 26px;
+    right: 16px;
+    border-top-color: transparent;
+  }
+
+  .nav.active .hamburger::before{
+    transform: rotate(135deg);
+  }
+
+  .nav.active .hamburger::after{
+    transform: rotate(-135deg);
+    top: -7px;
+  }
+
+  .cards{
+    width: 250px;
+ 
+  }
+
+  .cards img{
+    width: 250px;
+    
+  }
+
+  .container-footer {
+    flex-wrap: wrap;
+    row-gap: 2px;
+  }
+}
+
